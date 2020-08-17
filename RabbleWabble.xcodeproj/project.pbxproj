@@ -16,6 +16,7 @@
 		10DBF85024EAF8E1002B4ED8 /* QuestionGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DBF84F24EAF8E1002B4ED8 /* QuestionGroupData.swift */; };
 		10DBF85224EAF985002B4ED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10DBF85124EAF985002B4ED8 /* Assets.xcassets */; };
 		10DBF85424EAF9CA002B4ED8 /* LaunchScreen.storyboard.xml in Resources */ = {isa = PBXBuildFile; fileRef = 10DBF85324EAF9CA002B4ED8 /* LaunchScreen.storyboard.xml */; };
+		10DBF85624EAFC19002B4ED8 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DBF85524EAFC19002B4ED8 /* QuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		10DBF84F24EAF8E1002B4ED8 /* QuestionGroupData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionGroupData.swift; sourceTree = "<group>"; };
 		10DBF85124EAF985002B4ED8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10DBF85324EAF9CA002B4ED8 /* LaunchScreen.storyboard.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LaunchScreen.storyboard.xml; sourceTree = "<group>"; };
+		10DBF85524EAFC19002B4ED8 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				103DA5C424E912B2004E4FD5 /* Main.storyboard */,
 				10DBF85324EAF9CA002B4ED8 /* LaunchScreen.storyboard.xml */,
+				10DBF85524EAFC19002B4ED8 /* QuestionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				103DA5C324E912B2004E4FD5 /* QuestionViewController.swift in Sources */,
 				10DBF84C24EAF61F002B4ED8 /* Question.swift in Sources */,
 				103DA5BF24E912B2004E4FD5 /* AppDelegate.swift in Sources */,
+				10DBF85624EAFC19002B4ED8 /* QuestionView.swift in Sources */,
 				10DBF85024EAF8E1002B4ED8 /* QuestionGroupData.swift in Sources */,
 				103DA5C124E912B2004E4FD5 /* SceneDelegate.swift in Sources */,
 				10DBF84E24EAF69B002B4ED8 /* QuestionsGroups.swift in Sources */,
