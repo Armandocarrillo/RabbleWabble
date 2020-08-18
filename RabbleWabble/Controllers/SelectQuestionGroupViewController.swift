@@ -8,8 +8,16 @@
 
 import UIKit
 
-public class SelectQuestionGroupViewController: UIViewController{
+public class SelectQuestionGroupViewController: UIViewController, QuestionViewControllerDelegate{
+     //MARK: -QuestionViewControllerDelegate
+    public func questionViewController(_ viewController: QuestionViewController, didCancel questionGroup: QuestionGroup, at questionIndex: Int) {
+        navigationController?.popToViewController(self, animated: true)
+    }
     
+    public func questionViewController(_ viewController: QuestionViewController, didComplete questionGroup: QuestionGroup) {
+        navigationController?.popToViewController(self, animated: true)
+    }
+    //
     @IBOutlet internal var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = UIView() //Prevent the table view from drawing unnecessary empty table view cells
@@ -35,4 +43,27 @@ extension SelectQuestionGroupViewController: UITableViewDataSource {
     
    
     }
+
+extension SelectQuestionGroupViewController: UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedQuestionGroup = questionGroups[indexPath.row]
+        return indexPath
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let viewController = segue.destination as? QuestionViewController else { return }
+        viewController.questionGroup = selectedQuestionGroup
+        viewController.delegate = self
+    }
+    
+   
+    
+    
+}
+
 
