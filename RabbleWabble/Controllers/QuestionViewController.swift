@@ -9,16 +9,26 @@
 import UIKit
 
 public protocol QuestionViewControllerDelegate: class {
-    func questionViewController(_ viewController: QuestionViewController, didCancel questionGroup: QuestionGroup, at questionIndex: Int)// when the user cancel button
+    func questionViewController(_ viewController: QuestionViewController, didCancel questionGroup: QuestionStrategy)// when the user cancel button
     
-    func questionViewController(_ viewController: QuestionViewController, didComplete questionGroup: QuestionGroup) // when the user completes all of the questions
+    func questionViewController(_ viewController: QuestionViewController, didComplete questionStrategy: QuestionStrategy) // when the user completes all of the questions
+    
     
 }
 
+
+
 public class QuestionViewController: UIViewController {
+    
     
     //MARK : - Instance Properties
     public weak var delegate: QuestionViewControllerDelegate?
+    
+    public var questionStrategy: QuestionStrategy! {
+        didSet {
+           navigationItem.title = questionStrategy.title
+        }
+    }
     
     //public var questionGroup = QuestionGroup.basicPhrases()
     public var questionGroup : QuestionGroup! {// show the name of group
@@ -56,20 +66,22 @@ public class QuestionViewController: UIViewController {
     }
     
     @objc private func handleCancelPressed(sender: UIBarButtonItem) {
-        delegate?.questionViewController(self, didCancel: questionGroup, at: questionIndex)
+        delegate?.questionViewController(self, didCancel: questionStrategy)
     }
     
     private func showQuestion() {
-        let question = questionGroup.questions[questionIndex]
+        //let question = questionGroup.questions[questionIndex]
+        let question = questionStrategy.currentQuestion()// get currentQuestion
         
         questionView.answerLabel.text = question.answer
         questionView.promptLabel.text = question.prompt
         questionView.hintLabel.text = question.hint
         
-        questionView.answerLabel.isHidden = false
-        questionView.hintLabel.isHidden = false
+        questionView.answerLabel.isHidden = true
+        questionView.hintLabel.isHidden = true
         
-        questionIndexItem.title = "\(questionIndex + 1) /" + "\(questionGroup.questions.count)" //show question number
+        //questionIndexItem.title = "\(questionIndex + 1) /" + "\(questionGroup.questions.count)" //show question number
+        questionIndexItem.title = questionStrategy.questionIndexTitle()
     }
     @IBAction func toggleAnswerLabels(_ sender: Any) {
         questionView.answerLabel.isHidden = !questionView.answerLabel.isHidden
@@ -77,26 +89,41 @@ public class QuestionViewController: UIViewController {
     }
     
     @IBAction func handleCorrect(_ sender: Any) {
-        correctCount += 1
+        /*correctCount += 1
         questionView.correctCountLabel.text = "\(correctCount)"
+        showNextQuestion()*/
+        let question = questionStrategy.currentQuestion()
+        questionStrategy.markQuestionCorrect(question)
+        
+        questionView.correctCountLabel.text = String(questionStrategy.correctCount)
         showNextQuestion()
     }
 
     @IBAction func handleIncorrect(_ sender: Any){
-        incorrectCount += 1
+       /* incorrectCount += 1
         questionView.incorrectCountLabel.text = "\(incorrectCount)"
+        showNextQuestion()*/
+        
+        let question = questionStrategy.currentQuestion()
+        questionStrategy.markQuestionIncorrect(question)
+        
+        questionView.incorrectCountLabel.text = String(questionStrategy.incorrectCount)
         showNextQuestion()
     }
 
     private func showNextQuestion(){
-        questionIndex += 1
+        /*questionIndex += 1
         guard questionIndex < questionGroup.questions.count else {
             
             // TODO: - Handle this..
-            delegate?.questionViewController(self, didComplete: questionGroup)// Exit when question are complet
+            delegate?.questionViewController(self, didComplete: questionGroup)// Exit when question are complet*/
+        
+        guard questionStrategy.advanceToNextQuestion() else { delegate?.questionViewController(self, didComplete: questionStrategy)
             return
         }
         showQuestion()
     }
+    
+   
 }
 

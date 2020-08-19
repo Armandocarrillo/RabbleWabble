@@ -53,17 +53,33 @@ extension SelectQuestionGroupViewController: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    
+    
+    }
+    
+    public func questionViewController(_ viewController: QuestionViewController, didCancel questionGroup: QuestionStrategy) {
+        navigationController?.popToViewController(self, animated: true)
+    }
+    
+    public func questionViewController(_ viewController: QuestionViewController, didComplete questionGroup: QuestionStrategy) {
+        navigationController?.popToViewController(self, animated: true)
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let viewController = segue.destination as? QuestionViewController else { return }
-        viewController.questionGroup = selectedQuestionGroup
+        //viewController.questionGroup = selectedQuestionGroup
+        //viewController.questionStrategy = RandomQuestionStrategy(questionGroup: selectedQuestionGroup)
+        viewController.questionStrategy = SequentialQuestionStrategy(questionGroup: selectedQuestionGroup)
         viewController.delegate = self
     }
     
-   
-    
     
 }
+
+
+
+   
+
+
 
 
