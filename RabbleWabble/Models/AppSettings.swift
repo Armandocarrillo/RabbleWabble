@@ -34,8 +34,8 @@ public class AppSettings {
     private let userDefaults = UserDefaults.standard//singleton plus, to use to store key-value pairs that persist across app launches
     
     //MARK: - Instance Methods
-    public func questionStrategy(for questionGroup: QuestionGroup) -> QuestionStrategy {
-        return questionStrategyType.questionStrategy(for: questionGroup)
+    public func questionStrategy(for questionGroupCarataker: QuestionGroupCarataker) -> QuestionStrategy {
+        return questionStrategyType.questionStrategy(for: questionGroupCarataker)
     } // this is a convenience method to get the QuestionStrategy from the selected questionStrategyType
 }
 
@@ -56,12 +56,12 @@ public enum QuestionStrategyType : Int, CaseIterable { //which has cases for eve
         }
     }
     
-    public func questionStrategy(for questionGroup: QuestionGroup) -> QuestionStrategy { //to create a QuestionStrategy from the selected QuestionStrategyType
+    public func questionStrategy(for questionGroupCarataker: QuestionGroupCarataker) -> QuestionStrategy { //to create a QuestionStrategy from the selected QuestionStrategyType
         switch self {
         case .random:
-            return RandomQuestionStrategy(questionGroup: questionGroup)
+            return RandomQuestionStrategy(questionGroupCarataker: questionGroupCarataker)
         case .sequential:
-            return SequentialQuestionStrategy(questionGroup: questionGroup)
+            return SequentialQuestionStrategy(questionGroupCarataker: questionGroupCarataker)
         
         }
     }

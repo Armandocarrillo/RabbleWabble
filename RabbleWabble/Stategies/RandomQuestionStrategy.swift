@@ -8,10 +8,20 @@
 
 
 import GameplayKit.GKRandomSource
-
-public class RandomQuestionStrategy: QuestionStrategy {
+//RandomQuestionStrategy shuffles the questions
+public class RandomQuestionStrategy: BaseQuestionStrategy {
     // MARK: - PROPERTIES
     
+    
+    public convenience init(questionGroupCarataker: QuestionGroupCarataker){
+        let questionGroup = questionGroupCarataker.selectedQuestionGroup!
+        
+        let randomSource = GKRandomSource.sharedRandom()
+        let questions = randomSource.arrayByShufflingObjects(in: questionGroup.questions) as! [Question]
+        self.init(questionGroupCarataker: questionGroupCarataker, questions: questions)
+    }
+
+/*
     public var correctCount: Int = 0
     public var incorrectCount: Int = 0
     private let questionGroup: QuestionGroup
@@ -54,4 +64,5 @@ public class RandomQuestionStrategy: QuestionStrategy {
     public func questionIndexTitle() -> String {
         return "\(questionIndex + 1)/\(questions.count)"
     }
+}*/
 }

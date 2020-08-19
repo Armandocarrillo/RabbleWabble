@@ -7,12 +7,37 @@
 //
 
 
-
-public class SequentialQuestionStrategy: QuestionStrategy {
+//SequentialQuestionStrategy passes quenstions in the same order
+public class SequentialQuestionStrategy: BaseQuestionStrategy {
     
     // MARK: -Properties
-    public var correctCount: Int = 0
-    public var incorrectCount: Int = 0
+    
+    public convenience init(questionGroupCarataker: QuestionGroupCarataker){
+        let questionGroup = questionGroupCarataker.selectedQuestionGroup!
+        
+        let questions = questionGroup.questions
+        self.init(questionGroupCarataker: questionGroupCarataker, questions: questions)
+    }
+    
+/*
+    //public var correctCount: Int = 0
+    public var correctCount: Int{
+        get {
+            return questionGroup.score.correctCount
+        } set {
+            questionGroup.score.correctCount = newValue
+        }
+    }
+    
+    //public var incorrectCount: Int = 0
+    
+    public var incorrectCount: Int{
+        get {
+            return questionGroup.score.incorrectCount
+        } set {
+            questionGroup.score.incorrectCount = newValue
+        }
+    }
     private let questionGroup: QuestionGroup
     private var questionIndex = 0
     
@@ -50,4 +75,5 @@ public class SequentialQuestionStrategy: QuestionStrategy {
     public func questionIndexTitle() -> String {
         return "\(questionIndex + 1)/" + "\(questionGroup.questions.count)"
     }
+}*/
 }

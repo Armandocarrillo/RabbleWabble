@@ -24,10 +24,34 @@ public class SelectQuestionGroupViewController: UIViewController, QuestionViewCo
         }
     }
     
-    public let questionGroups = QuestionGroup.allGroups() //returns all of the possible questionGroup options
-    private var selectedQuestionGroup : QuestionGroup! //to hold onto whichever questionGroup the user selects
+    //public let questionGroups = QuestionGroup.allGroups() //returns all of the possible questionGroup options
+    private let questionGroupCarataker = QuestionGroupCarataker()
+    private var questionGroups : [QuestionGroup]{
+        return questionGroupCarataker.questionGroups
+    }
+    
+    //private var selectedQuestionGroup : QuestionGroup! //to hold onto whichever questionGroup the user selects
+    
+    private var selectedQuestionGroup: QuestionGroup! {
+        get {
+            return questionGroupCarataker.selectedQuestionGroup
+        } set {
+            questionGroupCarataker.selectedQuestionGroup = newValue
+        }
+    }
     
     private let appSettings = AppSettings.shared
+    
+    //MARK: - View Lifecycle
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        questionGroups.forEach{
+            print("\($0.title): " + "correctCount \($0.score.correctCount)," + "incorrectCount \($0.score.incorrectCount)"
+            )
+        }
+        
+        
+    }
     
 }
 extension SelectQuestionGroupViewController: UITableViewDataSource {
@@ -72,7 +96,7 @@ extension SelectQuestionGroupViewController: UITableViewDelegate {
         //viewController.questionGroup = selectedQuestionGroup
         //viewController.questionStrategy = RandomQuestionStrategy(questionGroup: selectedQuestionGroup)
         //viewController.questionStrategy = SequentialQuestionStrategy(questionGroup: selectedQuestionGroup)
-        viewController.questionStrategy = appSettings.questionStrategy(for: selectedQuestionGroup)
+        viewController.questionStrategy = appSettings.questionStrategy(for: questionGroupCarataker)
         viewController.delegate = self
     }
     
