@@ -27,6 +27,8 @@ public class SelectQuestionGroupViewController: UIViewController, QuestionViewCo
     public let questionGroups = QuestionGroup.allGroups() //returns all of the possible questionGroup options
     private var selectedQuestionGroup : QuestionGroup! //to hold onto whichever questionGroup the user selects
     
+    private let appSettings = AppSettings.shared
+    
 }
 extension SelectQuestionGroupViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,7 +71,8 @@ extension SelectQuestionGroupViewController: UITableViewDelegate {
         guard let viewController = segue.destination as? QuestionViewController else { return }
         //viewController.questionGroup = selectedQuestionGroup
         //viewController.questionStrategy = RandomQuestionStrategy(questionGroup: selectedQuestionGroup)
-        viewController.questionStrategy = SequentialQuestionStrategy(questionGroup: selectedQuestionGroup)
+        //viewController.questionStrategy = SequentialQuestionStrategy(questionGroup: selectedQuestionGroup)
+        viewController.questionStrategy = appSettings.questionStrategy(for: selectedQuestionGroup)
         viewController.delegate = self
     }
     
