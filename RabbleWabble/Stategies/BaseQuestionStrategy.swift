@@ -43,7 +43,7 @@ public class BaseQuestionStrategy: QuestionStrategy {
         self.questionGroupCarataker = questionGroupCarataker
         self.questions = questions
         
-        self.questionGroupCarataker.selectedQuestionGroup.score = QuestionGroup.Score()
+        self.questionGroupCarataker.selectedQuestionGroup.score.reset()
         
     }
     

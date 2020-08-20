@@ -18,6 +18,7 @@
 		1072EA1F24ECA0DD00BCA647 /* RandomQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1072EA1E24ECA0DD00BCA647 /* RandomQuestionStrategy.swift */; };
 		10C49BBB24EB68A000E60966 /* SelectQuestionGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C49BBA24EB68A000E60966 /* SelectQuestionGroupViewController.swift */; };
 		10C49BBD24EB83D600E60966 /* QuestionGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C49BBC24EB83D600E60966 /* QuestionGroupCell.swift */; };
+		10CFB2F524EDF0B4008CFE96 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFB2F424EDF0B4008CFE96 /* Observable.swift */; };
 		10DBF84C24EAF61F002B4ED8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DBF84B24EAF61F002B4ED8 /* Question.swift */; };
 		10DBF84E24EAF69B002B4ED8 /* QuestionsGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DBF84D24EAF69B002B4ED8 /* QuestionsGroups.swift */; };
 		10DBF85224EAF985002B4ED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10DBF85124EAF985002B4ED8 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		1072EA1E24ECA0DD00BCA647 /* RandomQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuestionStrategy.swift; sourceTree = "<group>"; };
 		10C49BBA24EB68A000E60966 /* SelectQuestionGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectQuestionGroupViewController.swift; sourceTree = "<group>"; };
 		10C49BBC24EB83D600E60966 /* QuestionGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGroupCell.swift; sourceTree = "<group>"; };
+		10CFB2F424EDF0B4008CFE96 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		10DBF84B24EAF61F002B4ED8 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		10DBF84D24EAF69B002B4ED8 /* QuestionsGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsGroups.swift; sourceTree = "<group>"; };
 		10DBF85124EAF985002B4ED8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				10DBF84B24EAF61F002B4ED8 /* Question.swift */,
 				10DBF84D24EAF69B002B4ED8 /* QuestionsGroups.swift */,
+				10CFB2F424EDF0B4008CFE96 /* Observable.swift */,
 				10492CC624ECEBE0001FAF3C /* AppSettings.swift */,
 			);
 			path = Models;
@@ -249,6 +252,7 @@
 				103DA5C124E912B2004E4FD5 /* SceneDelegate.swift in Sources */,
 				10492CC924ECF3AC001FAF3C /* AppSettingsViewController.swift in Sources */,
 				10FD049E24EDBAB400D2B6BE /* BaseQuestionStrategy.swift in Sources */,
+				10CFB2F524EDF0B4008CFE96 /* Observable.swift in Sources */,
 				10C49BBB24EB68A000E60966 /* SelectQuestionGroupViewController.swift in Sources */,
 				10FD049824EDA1F300D2B6BE /* DiskCaretaker.swift in Sources */,
 				10FD049A24EDB12A00D2B6BE /* QuestionGroupCareTaker.swift in Sources */,
