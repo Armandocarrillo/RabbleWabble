@@ -7,6 +7,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--NewQuestionGroup-->
+        <scene sceneID="5tJ-N8-64A">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewQuestionGroup" id="mln-Rd-KK5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ku9-ZD-ka7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="847" y="-270"/>
+        </scene>
         <!--Question View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -115,20 +123,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionGroupCell" id="gq4-Oc-AJC" customClass="QuestionGroupCell" customModule="RabbleWabble" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gq4-Oc-AJC" id="muF-4j-eQz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTD-mm-NWZ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="0 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I87-n7-3gA">
-                                                    <rect key="frame" x="365" y="11" width="29" height="21"/>
+                                                    <rect key="frame" x="365" y="11" width="29" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -170,6 +178,11 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_settings" id="CZT-VL-n2o">
                             <connections>
                                 <segue destination="r9J-8V-sd2" kind="show" id="CiH-id-D28"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1MU-Ox-AKx">
+                            <connections>
+                                <segue destination="mln-Rd-KK5" kind="presentation" id="tMd-DU-dib"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
